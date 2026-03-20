@@ -66,11 +66,27 @@ def needle_simulator(needle_length, wood_length, total_tosses):
 
 
 
+def touch_probability(needle_length, wood_length):
+    """
+    calculates probability using formulas on https://en.wikipedia.org/wiki/Buffon's_needle_problem#Without_integrals
+    """
+    if needle_length <= wood_length: #for when needle is smaller or equal to wood width
+        return (2*needle_length)/(wood_length*math.pi)
 
+    if needle_length > wood_length: #neede is longer than wood width
+        return (
+            (2 * needle_length) / (wood_length * math.pi)
+            - (2 / (wood_length * math.pi)) * (
+                math.sqrt(needle_length**2 - wood_length**2)
+                + wood_length * math.asin(wood_length / needle_length)
+            )
+            + 1
+        )
 
 # 1d) Write a function which takes ℓ
 #  and t
-#  as arguments. Using the formulae given in the link above, the function should return the theoretical probability of a single needle toss touching a board edge.
+#  as arguments. Using the formulae given in the link above, the function should return the theoretical probability
+#  of a single needle toss touching a board edge.
 
 # 1e) Write a function which takes a probability, ℓ
 #  and t
