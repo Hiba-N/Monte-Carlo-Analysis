@@ -33,7 +33,7 @@ def simulated_touch_probability(needle_length, wood_length, total_tosses):
 
     for _index in range(total_tosses):
         random_mid_needle_distance = sample_uniform(0, wood_length/2) #(a)
-        random_needle_angle = sample_uniform(0, 90)  #(b)
+        random_needle_angle = sample_uniform(0, math.pi / 2)  #(b)
         touched = touches_line(random_mid_needle_distance, random_needle_angle, needle_length)
 
         if touched:

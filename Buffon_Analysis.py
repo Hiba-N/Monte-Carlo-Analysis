@@ -7,8 +7,8 @@ import sys
 def main(args):
 
     try:
-        needle_length = int(args[1])
-        wood_length = int(args[2])
+        needle_length = float(args[1])
+        wood_length = float(args[2])
 
     except:
         print("Error, incorrect command line argument.") #catching string and any other invalid args that may come through
