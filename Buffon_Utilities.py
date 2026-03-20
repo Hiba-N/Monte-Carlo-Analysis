@@ -22,7 +22,7 @@ def touches_line(mid_needle_distance, needle_angle, needle_length):
         return True
 
 
-def needle_simulator(needle_length, wood_length, total_tosses):
+def simulated_touch_probability(needle_length, wood_length, total_tosses):
     """
     simulates a needle being thrown randomely n times with
     (a) random needle center 
@@ -39,11 +39,11 @@ def needle_simulator(needle_length, wood_length, total_tosses):
         if touched:
             total_touches+= 1
 
-    return total_touches
+    return total_touches/total_tosses
 
 
 
-def touch_probability(needle_length, wood_length):
+def theoretical_touch_probability(needle_length, wood_length):
     """
     calculates probability using formulas on https://en.wikipedia.org/wiki/Buffon's_needle_problem#Without_integrals
     """
